@@ -15,30 +15,32 @@ function EditQuestionPriview({
 
   const onChange = (event) => {
     const {
-      title: { value },
+      target: { value },
     } = event;
     setNewQuestion(value);
   };
 
   return (
     <div>
+      <div> Q{question.id} </div>
       {isEditMode ? (
         <>
           <form onSubmit={onSubmit}>
             <input
               type="question"
-              placeholder="Edit your Question"
+              placeholder="바꿀 질문을 입력해주세요"
               value={newQuestion}
               required
               onChange={onChange}
             />
             <input type="submit" value="Update Question" />
           </form>
+          <div> 선택지 1 </div>
+          <div> 선택지 2 </div>
         </>
       ) : (
         <>
-          <div> Q{question.id} </div>
-          <div> {question.title} </div>
+          <div> {newQuestion} </div>
           <button onClick={() => changeEditMode(elementIndex)}> edit </button>
         </>
       )}
