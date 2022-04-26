@@ -7,6 +7,7 @@ function countNumbers(array) {
 
 function MakeSurbeyPage() {
   const [questions, setQuestions] = useState([{ id: "1", title: "A vs B" }]);
+  const [isEditMode, setIsEditMode] = useState([false]);
 
   const addQuestion = () => {
     setQuestions(
@@ -17,13 +18,29 @@ function MakeSurbeyPage() {
     );
   };
 
+  const changeEditMode = (idx) => {
+    const isToggle = isEditMode[idx];
+
+    const newArr = Array(questions.length).fill(false);
+
+    if (isToggle == false) {
+      newArr[idx] = true;
+    }
+    setIsEditMode(newArr);
+  };
+
   const count = useMemo(() => countNumbers(questions), [questions]);
 
   return (
     <>
       {questions.map((question, index) => (
         <li key={question.id}>
-          <EditQuestionPriview question={question} />
+          <EditQuestionPriview
+            question={question}
+            changeEditMode={changeEditMode}
+            isEditMode={isEditMode[index]}
+            elementIndex={index}
+          />
           <div> 인덱스 : {index} </div>
         </li>
       ))}
