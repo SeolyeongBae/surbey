@@ -21,6 +21,8 @@ function PhotoContainer({ postId }) {
   if (error) return <div>에러 발생!</div>;
   if (!data) return null;
 
+  console.log("data", data);
+
   return <Discription post={data} />;
 }
 

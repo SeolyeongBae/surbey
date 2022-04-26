@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainPage from "./pages/MainPage";
+import MakeSurbeyPage from "./pages/MakeSurbeyPage";
 import SearchPage from "./pages/SearchPage";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="search" element={<SearchPage />} />
+      <Route path="edit" element={<MakeSurbeyPage />} />
       {/* <Route path="storage/:id" element={<Storage />} /> */}
     </Routes>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PhotoContainer from "../containers/PhotoContainer";
 
 const MySearchBar = ({ setID }) => {
   const [searchValue, setSearchValue] = useState("");

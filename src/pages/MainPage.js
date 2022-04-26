@@ -7,6 +7,9 @@ function MainPage() {
       <li>
         <Link to="/search">검색하기</Link>
       </li>
+      <il>
+        <Link to="/edit"> 질문 만들기 </Link>
+      </il>
     </ul>
   );
 }
