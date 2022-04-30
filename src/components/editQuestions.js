@@ -25,6 +25,7 @@ const QuestionList = React.memo(function QuestionList({ questions }) {
 
 function EditQuestions({ questions, onCreate }) {
   const [text, setText] = useState("");
+
   const onChange = (e) => setText(e.target.value);
   const onSubmit = (e) => {
     e.preventDefault(); // Submit 이벤트 발생했을 때 새로고침 방지
@@ -34,6 +35,8 @@ function EditQuestions({ questions, onCreate }) {
 
   return (
     <div>
+      <QuestionList questions={questions} />
+
       <form onSubmit={onSubmit}>
         <input
           value={text}
@@ -42,8 +45,6 @@ function EditQuestions({ questions, onCreate }) {
         />
         <button type="submit">등록</button>
       </form>
-
-      <QuestionList questions={questions} />
     </div>
   );
 }
