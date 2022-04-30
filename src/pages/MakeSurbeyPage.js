@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import EditQuestionContainer from "../containers/EditQuestionContainer";
+import MakeSurbeySwiperPage from "./MakeSurbeySiwperPage";
 
 function MakeSurbeyPage() {
   return (
     <>
       <EditQuestionContainer />
+      <MakeSurbeySwiperPage />
     </>
   );
 }
