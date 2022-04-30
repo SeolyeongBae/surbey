@@ -1,50 +1,42 @@
 import React, { useState } from "react";
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
-const Question = React.memo(function Question({ question }) {
+const Question = React.memo(function Question({ question, onRemove, index }) {
   return (
     <>
-      <div> Q{question.id} </div>
+      <div> Q{index} </div>
       <div> {question.text} </div>
       <button> edit </button>
+      <button onClick={() => onRemove(question.id)}> remove </button>
     </>
   );
 });
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
-const QuestionList = React.memo(function QuestionList({ questions }) {
+const QuestionList = React.memo(function QuestionList({ questions, onRemove }) {
   return (
     <ul>
       {questions &&
-        questions.map((question) => (
-          <Question key={question.id} question={question} />
+        questions.map((question, index) => (
+          <Question
+            key={question.id}
+            question={question}
+            index={index}
+            onRemove={onRemove}
+          />
         ))}
     </ul>
   );
 });
 
-function EditQuestions({ questions, onCreate }) {
+function EditQuestions({ questions, onCreate, onRemove }) {
   const [text, setText] = useState("");
-
-  const onChange = (e) => setText(e.target.value);
-  const onSubmit = (e) => {
-    e.preventDefault(); // Submit 이벤트 발생했을 때 새로고침 방지
-    onCreate(text);
-    setText(""); // 인풋 초기화
-  };
 
   return (
     <div>
-      <QuestionList questions={questions} />
+      <QuestionList questions={questions} onRemove={onRemove} />
 
-      <form onSubmit={onSubmit}>
-        <input
-          value={text}
-          placeholder="할 일을 입력하세요.."
-          onChange={onChange}
-        />
-        <button type="submit">등록</button>
-      </form>
+      <button onClick={() => onCreate("질문을 입력해 주세요")}>등록</button>
     </div>
   );
 }
