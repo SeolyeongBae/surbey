@@ -2,7 +2,13 @@ import React, { useState } from "react";
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
 const Question = React.memo(function Question({ question }) {
-  return <>{question.text}</>;
+  return (
+    <>
+      <div> Q{question.id} </div>
+      <div> {question.text} </div>
+      <button> edit </button>
+    </>
+  );
 });
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
