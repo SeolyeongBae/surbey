@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EditQuestionDetail from "../components/editQuestionDetail";
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
 const Question = React.memo(function Question({ question, onRemove, index }) {
@@ -18,12 +19,10 @@ const QuestionList = React.memo(function QuestionList({ questions, onRemove }) {
     <ul>
       {questions &&
         questions.map((question, index) => (
-          <Question
-            key={question.id}
-            question={question}
-            index={index}
-            onRemove={onRemove}
-          />
+          <div key={question.id}>
+            <EditQuestionDetail question={question} />
+            <Question question={question} index={index} onRemove={onRemove} />
+          </div>
         ))}
     </ul>
   );

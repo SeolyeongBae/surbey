@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function EditQuestionDetail({ question, onEdit }) {
   const [editing, setEditing] = useState(false);
@@ -8,7 +8,7 @@ function EditQuestionDetail({ question, onEdit }) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    changeEditMode(elementIndex);
+    toggleEditing();
     onEdit(newQuestion);
   };
 
@@ -23,8 +23,13 @@ function EditQuestionDetail({ question, onEdit }) {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        toggleEditing();
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target)
+      ) {
+        setEditing(() => false);
+      } else {
+        setEditing(() => true);
       }
     }
     // Bind the event listener
@@ -32,7 +37,7 @@ function EditQuestionDetail({ question, onEdit }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [searchInputRef]);
 
   return (
     <div ref={searchInputRef}>
@@ -58,4 +63,4 @@ function EditQuestionDetail({ question, onEdit }) {
   );
 }
 
-export default EditQuestionPriview;
+export default EditQuestionDetail;
