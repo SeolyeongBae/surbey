@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import EditQuestionPriview from "../components/editQuestionPreview";
+import EditQuestionContainer from "../containers/EditQuestionContainer";
 
 function countNumbers(array) {
   return array.length;
@@ -45,6 +46,7 @@ function MakeSurbeyPage() {
         </li>
       ))}
       <button onClick={addQuestion}>append questions</button>
+      <EditQuestionContainer />
     </>
   );
 }
