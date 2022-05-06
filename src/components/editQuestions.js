@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EditQuestionDetail from "../components/editQuestionDetail";
 
 // 컴포넌트 최적화를 위하여 React.memo를 사용합니다
@@ -35,8 +35,6 @@ const QuestionList = React.memo(function QuestionList({
 });
 
 function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
-  const [text, setText] = useState("");
-
   return (
     <div>
       <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />
