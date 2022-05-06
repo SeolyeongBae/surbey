@@ -4,10 +4,11 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useSelector } from "react-redux";
 
 SwiperCore.use([Navigation, Pagination]);
 
-const testStyle = {
+const outerStyle = {
   height: "10em",
   fontSize: "1rem",
   lineHeight: 1.5,
@@ -22,6 +23,8 @@ const innerStyle = {
 };
 
 function MakeSurbeySwiperPage({ index }) {
+  const editQuestions = useSelector((state) => state.editReducer);
+
   return (
     <div>
       <Swiper
@@ -33,7 +36,7 @@ function MakeSurbeySwiperPage({ index }) {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <div style={testStyle}>
+          <div style={outerStyle}>
             <div style={innerStyle}>가운데 정렬 좀 시켜주세요.</div>
           </div>
         </SwiperSlide>

@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
+/* 질문을 수정한다..*/
 function EditQuestionDetail({ question, onEdit, id }) {
   const [editing, setEditing] = useState(false);
   const [newQuestion, setNewQuestion] = useState(question.text);
+  //띄우고 보여주는 건 state로부터 가져오지 않고 newQuestion에 저장해서 지역적으로 해당 값을 관리한다.
+  //그러나 변경의 경우 onEdit를 통해 액션을 발생시켜 state를 수정할 수 있게 한다.
 
   const searchInputRef = useRef(null);
 
@@ -21,6 +24,7 @@ function EditQuestionDetail({ question, onEdit, id }) {
 
   const toggleEditing = () => setEditing((prev) => !prev);
 
+  //특정 영역을 눌렀을 때는 에딧 모드. 해당 영역이 아닌 다른 곳 아무데나 누르면 에딧 모드가 해제되도록 한다, ref를 사용함.
   useEffect(() => {
     function handleClickOutside(event) {
       if (

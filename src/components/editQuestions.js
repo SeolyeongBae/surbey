@@ -1,7 +1,7 @@
 import React from "react";
 import EditQuestionDetail from "../components/editQuestionDetail";
 
-// 컴포넌트 최적화를 위하여 React.memo를 사용합니다
+/* 해당 질문에 대한 수정/삭제 버튼을 띄운다.*/
 const Question = React.memo(function Question({ question, onRemove, index }) {
   return (
     <>
@@ -11,6 +11,7 @@ const Question = React.memo(function Question({ question, onRemove, index }) {
   );
 });
 
+/* question을 받아 질문과 수정/삭제 버튼을 띄운다.*/
 const QuestionList = React.memo(function QuestionList({
   questions,
   onRemove,
