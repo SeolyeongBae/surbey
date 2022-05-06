@@ -1,12 +1,10 @@
-import { getPhotos, getPhotoById } from "../api/getPhotos"; // api/posts 안의 함수 모두 불러오기
+import { getPhotoById } from "../api/getPhotos"; // api/posts 안의 함수 모두 불러오기
 import {
   reducerUtils,
-  handleAsyncActions,
-  createPromiseSaga,
   createPromiseSagaById,
   handleAsyncActionsById,
 } from "../lib/asyncUtils";
-import { call, put, takeEvery } from "redux-saga/effects";
+import { takeEvery } from "redux-saga/effects";
 
 //액션 타입
 

@@ -73,13 +73,6 @@ export const handleAsyncActions = (type, key, keepData = false) => {
   return (state, action) => {
     switch (action.type) {
       case type:
-        console.log(
-          "does not success!!",
-          "data",
-          state[key].data,
-          "keepData",
-          keepData,
-        );
         return {
           ...state,
           [key]: reducerUtils.loading(keepData ? state[key].data : null),
@@ -114,18 +107,11 @@ export const handleAsyncActionsById = (type, key, keepData = false) => {
             ...state[key],
             [id]: reducerUtils.loading(
               // state[key][id]가 만들어져있지 않을 수도 있으니까 유효성을 먼저 검사 후 data 조회
-              keepData ? state[key][id] && state[key][id].data : null,
+              keepData ? state[key][id] && state[key][id].data : null
             ),
           },
         };
       case SUCCESS:
-        console.log(
-          "does not success!!",
-          "data",
-          state[key][id],
-          "keepData",
-          keepData,
-        );
         return {
           ...state,
           [key]: {
