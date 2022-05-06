@@ -34,7 +34,7 @@ export const editQuestion = (id, text) => ({
 export const editAnswer = (questionId, answerId, text) => ({
   type: EDIT_ANSWER,
   answer: {
-    questionid: questionId,
+    questionId: questionId,
     answerId: answerId,
     text: text,
   },
@@ -56,29 +56,24 @@ export default function editReducer(state = initialState, action) {
           : question
       );
     case EDIT_ANSWER:
-      //const answer_index = action.answer.answerId; //아래 코드의 해결방법을 찾을 때까지 보류
-      return state.map((question) =>
-        question.id === action.answer.questionId // id 가 일치하면
-          ? action.answer.answerId //드러운 코드... 삼항 연산자를 두개 겹쳐놨다;;;;;
-            ? //answer id에 따라서 바꾸는 answer 값을 다르게 하고 싶었는데 이름으로 지정안됨, 변수로 지정해도 뻑난다. 객체 수정을 공부하자.
-              {
-                //1번을 바꾸는경우
-                ...question,
-                answer: {
-                  ...question.answer,
-                  1: action.answer.text,
-                },
-              }
-            : {
-                //0번을 바꾸는경우
-                ...question,
-                answer: {
-                  ...question.answer,
-                  0: action.answer.text,
-                },
-              }
-          : question
-      );
+      return state.map((question) => {
+        const ansEditId = 1 - action.answer.answerId;
+        //수정하지 않을 대상 답변 아이디
+        // ans ID가 0이면 안 건드릴 친구는 1이 된다.
+        console.log(ansEditId);
+        console.log(action.answer.answerId);
+        console.log(question.answer);
+
+        return question.id === action.answer.questionId // id 가 일치하면
+          ? {
+              ...question,
+              answer: [[...question.answer][ansEditId]].concat({
+                ansId: action.answer.answerId,
+                text: action.answer.text,
+              }),
+            }
+          : question;
+      });
     default:
       return state;
   }

@@ -60,17 +60,19 @@ function MakeSurbeySwiperPage({ index }) {
                     onEdit={onEdit}
                     id={question.id}
                   />
-
                   <EditAnswerDetail
-                    answer={question.answer.}
+                    answer={question.answer[0].text}
                     onEdit={onEditAnswer}
                     questionId={question.id}
                     answerId={0}
                   />
 
-                  <div style={answerStyle}> A </div>
-                  <div>.</div>
-                  <div style={answerStyle}> B </div>
+                  <EditAnswerDetail
+                    answer={question.answer[1].text}
+                    onEdit={onEditAnswer}
+                    questionId={question.id}
+                    answerId={1}
+                  />
                 </div>
               </div>
             </SwiperSlide>
