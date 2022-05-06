@@ -38,22 +38,26 @@ function MakeSurbeySwiperPage({ index }) {
         slidesPerView={1}
         initialSlide={index}
         navigation
+        allowTouchMove={false}
         pagination={{ clickable: true }}
       >
-        {editQuestions.map((question, index) => (
-          <SwiperSlide>
-            <div key={question.id} style={outerStyle}>
-              <div style={innerStyle}>
-                <div> Q{index} </div>
-                <EditQuestionDetail
-                  question={question}
-                  onEdit={onEdit}
-                  id={question.id}
-                />
+        {editQuestions &&
+          editQuestions.map((question, index) => (
+            <SwiperSlide>
+              <div key={question.id} style={outerStyle}>
+                <div style={innerStyle}>
+                  <div> Q{index} </div>
+                  <EditQuestionDetail
+                    question={question}
+                    onEdit={onEdit}
+                    id={question.id}
+                  />
+                  <div> A </div>
+                  <div> B </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

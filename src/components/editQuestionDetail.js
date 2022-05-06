@@ -32,8 +32,10 @@ function EditQuestionDetail({ question, onEdit, id }) {
         !searchInputRef.current.contains(event.target)
       ) {
         setEditing(() => false);
+        console.log("clicked");
       } else {
         setEditing(() => true);
+        console.log("no clicked");
       }
     }
     // Bind the event listener
