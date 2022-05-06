@@ -1,6 +1,10 @@
 import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addQuestion, deleteQuestion } from "../modules/editQuestion";
+import {
+  addQuestion,
+  deleteQuestion,
+  editQuestion,
+} from "../modules/editQuestion";
 import EditQuestions from "../components/editQuestions";
 
 function EditQuestionContainer() {
@@ -12,6 +16,7 @@ function EditQuestionContainer() {
 
   const onCreate = (text) => dispatch(addQuestion(text));
   const onRemove = (index) => dispatch(deleteQuestion(index));
+  const onEdit = (id, text) => dispatch(editQuestion(id, text));
   //const onToggle = useCallback(id => dispatch(toggleTodo(id)), [dispatch]); // 최적화를 위해 useCallback 사용
 
   return (
@@ -19,6 +24,7 @@ function EditQuestionContainer() {
       questions={editQuestions}
       onCreate={onCreate}
       onRemove={onRemove}
+      onEdit={onEdit}
     />
   );
 }

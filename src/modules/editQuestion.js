@@ -21,6 +21,14 @@ export const deleteQuestion = (index) => ({
   index: index,
 });
 
+export const editQuestion = (id, text) => ({
+  type: EDIT_QUESTION,
+  question: {
+    id: id,
+    text: text,
+  },
+});
+
 /*
 export const toggleTodo = id => ({
   type: TOGGLE_TODO,
@@ -37,6 +45,12 @@ export default function editReducer(state = initialState, action) {
       return state.concat(action.question);
     case DELETE_QUESTION:
       return state.filter((question) => question.id !== action.index);
+    case EDIT_QUESTION:
+      return state.map((question) =>
+        question.id === action.question.id // id 가 일치하면
+          ? { ...question, text: action.question.text } // done 값을 반전시키고
+          : question
+      );
     /*case TOGGLE_TODO:
       return state.map(
         todo =>

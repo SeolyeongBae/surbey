@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function EditQuestionDetail({ question, onEdit }) {
+function EditQuestionDetail({ question, onEdit, id }) {
   const [editing, setEditing] = useState(false);
   const [newQuestion, setNewQuestion] = useState(question.text);
 
@@ -9,7 +9,7 @@ function EditQuestionDetail({ question, onEdit }) {
   const onSubmit = async (event) => {
     event.preventDefault();
     toggleEditing();
-    onEdit(newQuestion);
+    onEdit(id, newQuestion);
   };
 
   const onChange = (event) => {

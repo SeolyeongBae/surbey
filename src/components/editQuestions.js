@@ -5,22 +5,28 @@ import EditQuestionDetail from "../components/editQuestionDetail";
 const Question = React.memo(function Question({ question, onRemove, index }) {
   return (
     <>
-      <div> Q{index} </div>
-      <div> {question.text} </div>
-      <button> edit </button>
+      <button> editMode </button>
       <button onClick={() => onRemove(question.id)}> remove </button>
     </>
   );
 });
 
-// 컴포넌트 최적화를 위하여 React.memo를 사용합니다
-const QuestionList = React.memo(function QuestionList({ questions, onRemove }) {
+const QuestionList = React.memo(function QuestionList({
+  questions,
+  onRemove,
+  onEdit,
+}) {
   return (
     <ul>
       {questions &&
         questions.map((question, index) => (
           <div key={question.id}>
-            <EditQuestionDetail question={question} />
+            <div> Q{index} </div>
+            <EditQuestionDetail
+              question={question}
+              onEdit={onEdit}
+              id={question.id}
+            />
             <Question question={question} index={index} onRemove={onRemove} />
           </div>
         ))}
@@ -28,13 +34,12 @@ const QuestionList = React.memo(function QuestionList({ questions, onRemove }) {
   );
 });
 
-function EditQuestions({ questions, onCreate, onRemove }) {
+function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
   const [text, setText] = useState("");
 
   return (
     <div>
-      <QuestionList questions={questions} onRemove={onRemove} />
-
+      <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />
       <button onClick={() => onCreate("질문을 입력해 주세요")}>등록</button>
     </div>
   );
