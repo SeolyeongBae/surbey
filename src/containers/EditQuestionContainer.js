@@ -15,7 +15,7 @@ function EditQuestionContainer() {
   const onRemove = (index) => dispatch(deleteQuestion(index)); //질문 삭제
   const onEdit = (id, text) => dispatch(editQuestion(id, text)); //질문 수정
 
-  //최적화를 위해 useCallback를 사용할 수 있을지도?
+  //최적화를 위해 useCallback를 사용할 수 있을짇?
 
   return (
     <EditQuestions

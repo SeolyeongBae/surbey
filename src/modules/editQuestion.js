@@ -2,7 +2,7 @@
 const ADD_QUESTION = "edit/ADD_QUESTION";
 const DELETE_QUESTION = "edit/DETELE_QUESTION";
 const EDIT_QUESTION = "edit/EDIT_QUESTION";
-const EDIT_QUESTION_ANSWER = "edit/EDIT_QUESTION_ANSWER";
+const EDIT_ANSWER = "edit/EDIT_ANSWER";
 
 let nextId = 1; // 고유 id
 
@@ -11,6 +11,10 @@ export const addQuestion = (text) => ({
   question: {
     id: nextId++,
     text,
+    answer: [
+      { ansId: 0, text: "A" },
+      { ansId: 1, text: "B" },
+    ],
   },
 });
 
@@ -23,6 +27,15 @@ export const editQuestion = (id, text) => ({
   type: EDIT_QUESTION,
   question: {
     id: id,
+    text: text,
+  },
+});
+
+export const editAnswer = (questionId, answerId, text) => ({
+  type: EDIT_ANSWER,
+  answer: {
+    questionid: questionId,
+    answerId: answerId,
     text: text,
   },
 });
@@ -40,6 +53,30 @@ export default function editReducer(state = initialState, action) {
       return state.map((question) =>
         question.id === action.question.id // id 가 일치하면
           ? { ...question, text: action.question.text } // text 값을 바꿔준다. 불변성 유지를 위해 스프레드 연산자 사용
+          : question
+      );
+    case EDIT_ANSWER:
+      //const answer_index = action.answer.answerId; //아래 코드의 해결방법을 찾을 때까지 보류
+      return state.map((question) =>
+        question.id === action.answer.questionId // id 가 일치하면
+          ? action.answer.answerId //드러운 코드... 삼항 연산자를 두개 겹쳐놨다;;;;;
+            ? //answer id에 따라서 바꾸는 answer 값을 다르게 하고 싶었는데 이름으로 지정안됨, 변수로 지정해도 뻑난다. 객체 수정을 공부하자.
+              {
+                //1번을 바꾸는경우
+                ...question,
+                answer: {
+                  ...question.answer,
+                  1: action.answer.text,
+                },
+              }
+            : {
+                //0번을 바꾸는경우
+                ...question,
+                answer: {
+                  ...question.answer,
+                  0: action.answer.text,
+                },
+              }
           : question
       );
     default:
