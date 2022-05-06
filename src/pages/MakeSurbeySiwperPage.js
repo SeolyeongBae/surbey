@@ -4,7 +4,9 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import EditQuestionDetail from "../components/editQuestionDetail";
+import { editQuestion } from "../modules/editQuestion";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -23,7 +25,10 @@ const innerStyle = {
 };
 
 function MakeSurbeySwiperPage({ index }) {
+  const dispatch = useDispatch();
+
   const editQuestions = useSelector((state) => state.editReducer);
+  const onEdit = (id, text) => dispatch(editQuestion(id, text)); //질문 수정
 
   return (
     <div>
@@ -35,14 +40,20 @@ function MakeSurbeySwiperPage({ index }) {
         navigation
         pagination={{ clickable: true }}
       >
-        <SwiperSlide>
-          <div style={outerStyle}>
-            <div style={innerStyle}>가운데 정렬 좀 시켜주세요.</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        {editQuestions.map((question, index) => (
+          <SwiperSlide>
+            <div key={question.id} style={outerStyle}>
+              <div style={innerStyle}>
+                <div> Q{index} </div>
+                <EditQuestionDetail
+                  question={question}
+                  onEdit={onEdit}
+                  id={question.id}
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
