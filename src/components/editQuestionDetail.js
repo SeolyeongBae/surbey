@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-/* 질문을 수정한다..*/
+/* 질문을 수정한다*/
 function EditQuestionDetail({ question, onEdit, id }) {
   const [editing, setEditing] = useState(false);
   const [newQuestion, setNewQuestion] = useState(question.text);

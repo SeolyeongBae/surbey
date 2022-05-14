@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import EditQuestionDetail from "../components/editQuestionDetail";
 import EditAnswerDetail from "../components/editAnswerDetail";
 import { editAnswer, editQuestion } from "../modules/editQuestion";
+import { useLocation } from "react-router-dom";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -25,18 +26,19 @@ const innerStyle = {
   margin: "0 auto",
 };
 
-const answerStyle = {
-  background: "teal",
-  color: "white",
-};
-
 function MakeSurbeySwiperPage({ index }) {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const editQuestions = useSelector((state) => state.editReducer);
   const onEdit = (id, text) => dispatch(editQuestion(id, text)); //질문 수정
   const onEditAnswer = (questionId, answerId, text) =>
     dispatch(editAnswer(questionId, answerId, text)); //답변 수정
+
+  const focusIndex =
+    location.state.focusIndex == null ? 1 : location.state.focusIndex;
+
+  //새로고침하면 안되는 이유 : 스토어에 들어있는게 날아가서
 
   return (
     <div>
@@ -44,7 +46,7 @@ function MakeSurbeySwiperPage({ index }) {
         className="banner"
         spaceBetween={50}
         slidesPerView={1}
-        initialSlide={index}
+        initialSlide={focusIndex}
         navigation
         allowTouchMove={false}
         pagination={{ clickable: true }}

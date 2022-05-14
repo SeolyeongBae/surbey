@@ -6,6 +6,7 @@ const EDIT_ANSWER = "edit/EDIT_ANSWER";
 
 let nextId = 1; // 고유 id
 
+//질문 추가 액션
 export const addQuestion = (text) => ({
   type: ADD_QUESTION,
   question: {
@@ -18,11 +19,13 @@ export const addQuestion = (text) => ({
   },
 });
 
+//질문 삭제 액션
 export const deleteQuestion = (index) => ({
   type: DELETE_QUESTION,
   index: index,
 });
 
+//질문 수정 액션
 export const editQuestion = (id, text) => ({
   type: EDIT_QUESTION,
   question: {
@@ -31,6 +34,7 @@ export const editQuestion = (id, text) => ({
   },
 });
 
+//답변 수정 액션
 export const editAnswer = (questionId, answerId, text) => ({
   type: EDIT_ANSWER,
   answer: {
@@ -68,6 +72,7 @@ export default function editReducer(state = initialState, action) {
           ? {
               ...question,
               answer: [[...question.answer][ansEditId]].concat({
+                //불변성을 지키기 위해 스프레드+concat
                 ansId: action.answer.answerId,
                 text: action.answer.text,
               }),

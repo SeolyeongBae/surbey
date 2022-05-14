@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import EditQuestionDetail from "../components/editQuestionDetail";
 
 /* 해당 질문에 대한 수정/삭제 버튼을 띄운다.*/
 const Question = React.memo(function Question({ question, onRemove, index }) {
+  const focusState = { focusIndex: index };
   return (
     <>
-      <button> editMode </button>
+      <button>
+        <Link to="detail" state={focusState}>
+          검색하기
+        </Link>
+      </button>
+
       <button onClick={() => onRemove(question.id)}> remove </button>
     </>
   );

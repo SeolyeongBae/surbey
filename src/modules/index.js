@@ -10,5 +10,3 @@ export function* rootSaga() {
 }
 
 export default rootReducer;
-
-//이름 짓기?
