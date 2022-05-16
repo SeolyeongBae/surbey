@@ -9,7 +9,7 @@ const Question = React.memo(function Question({ question, onRemove, index }) {
     <>
       <button>
         <Link to="detail" state={focusState}>
-          검색하기
+          문항 수정
         </Link>
       </button>
 

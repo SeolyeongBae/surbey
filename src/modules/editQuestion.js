@@ -63,10 +63,7 @@ export default function editReducer(state = initialState, action) {
       return state.map((question) => {
         const ansEditId = 1 - action.answer.answerId;
         //수정하지 않을 대상 답변 아이디
-        // ans ID가 0이면 안 건드릴 친구는 1이 된다.
-        console.log(ansEditId);
-        console.log(action.answer.answerId);
-        console.log(question.answer);
+        // ans ID가 0이면 toggle된다.
 
         return question.id === action.answer.questionId // id 가 일치하면
           ? {

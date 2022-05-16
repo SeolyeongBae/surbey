@@ -34,7 +34,6 @@ function EditQuestionDetail({ question, onEdit, id }) {
         setEditing(() => false);
       } else {
         setEditing(() => true);
-        console.log("no clicked");
       }
     }
     // Bind the event listener
