@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import EditQuestionDetail from "../components/editQuestionDetail";
 
-// 컴포넌트 최적화를 위하여 React.memo를 사용합니다
+/* 해당 질문에 대한 수정/삭제 버튼을 띄운다.*/
 const Question = React.memo(function Question({ question, onRemove, index }) {
+  const focusState = { focusIndex: index };
   return (
     <>
-      <button> editMode </button>
+      <button>
+        <Link to="detail" state={focusState}>
+          문항 수정
+        </Link>
+      </button>
+
       <button onClick={() => onRemove(question.id)}> remove </button>
     </>
   );
 });
 
+/* question을 받아 질문과 수정/삭제 버튼을 띄운다.*/
 const QuestionList = React.memo(function QuestionList({
   questions,
   onRemove,
@@ -35,8 +43,6 @@ const QuestionList = React.memo(function QuestionList({
 });
 
 function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
-  const [text, setText] = useState("");
-
   return (
     <div>
       <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />

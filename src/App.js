@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainPage from "./pages/MainPage";
 import MakeSurbeyPage from "./pages/MakeSurbeyPage";
+import MakeSurbeySwiperPage from "./pages/MakeSurbeySiwperPage";
 import SearchPage from "./pages/SearchPage";
 
 function App() {
@@ -10,17 +11,9 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="search" element={<SearchPage />} />
       <Route path="edit" element={<MakeSurbeyPage />} />
-      {/* <Route path="storage/:id" element={<Storage />} /> */}
+      <Route path="edit/detail" element={<MakeSurbeySwiperPage />} />
     </Routes>
   );
 }
 
 export default App;
-
-/*
-photo 포함, react, redux middleware 사용해서 
-router
-single page application 화면 바뀔 때마다 action dispatch 
-redux middelware, redux saga 사용해서 api 콜,
-swipe 안에 넣고 swiper 기능까지 만들어보기!?
-*/

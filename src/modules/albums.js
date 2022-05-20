@@ -1,3 +1,5 @@
+/* 과거 사진 api를 받을때 썼던 코드, 이후 api 받아와서 설문 보여줄 때 이 코드를 재활용할 예정이다. 리덕스 사가 연습! */
+
 import { getPhotoById } from "../api/getPhotos"; // api/posts 안의 함수 모두 불러오기
 import {
   reducerUtils,

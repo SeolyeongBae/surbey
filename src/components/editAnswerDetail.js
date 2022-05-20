@@ -1,25 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 
-/* 질문을 수정한다*/
-function EditQuestionDetail({ question, onEdit, id }) {
+function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
   const [editing, setEditing] = useState(false);
-  const [newQuestion, setNewQuestion] = useState(question.text);
+  const [newAnswer, setNewAnswer] = useState(answer);
   //띄우고 보여주는 건 state로부터 가져오지 않고 newQuestion에 저장해서 지역적으로 해당 값을 관리한다.
   //그러나 변경의 경우 onEdit를 통해 액션을 발생시켜 state를 수정할 수 있게 한다.
 
-  const searchInputRef = useRef(null);
+  const answerInputRef = useRef(null);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     toggleEditing();
-    onEdit(id, newQuestion);
+    onEdit(questionId, answerId, newAnswer);
   };
 
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
-    setNewQuestion(value);
+    setNewAnswer(value);
   };
 
   const toggleEditing = () => setEditing((prev) => !prev);
@@ -28,8 +27,8 @@ function EditQuestionDetail({ question, onEdit, id }) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (
-        searchInputRef.current &&
-        !searchInputRef.current.contains(event.target)
+        answerInputRef.current &&
+        !answerInputRef.current.contains(event.target)
       ) {
         setEditing(() => false);
       } else {
@@ -41,30 +40,30 @@ function EditQuestionDetail({ question, onEdit, id }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [searchInputRef]);
+  }, [answerInputRef]);
 
   return (
-    <div ref={searchInputRef}>
+    <div ref={answerInputRef}>
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
             <input
-              type="question"
+              type="answer"
               placeholder="바꿀 질문을 입력해주세요"
-              value={newQuestion}
+              value={newAnswer}
               required
               onChange={onChange}
             />
-            <input type="submit" value="Update Question" />
+            <input type="submit" value="Update Ans" />
           </form>
         </>
       ) : (
         <>
-          <div> {newQuestion} </div>
+          <div> {newAnswer} </div>
         </>
       )}
     </div>
   );
 }
 
-export default EditQuestionDetail;
+export default EditAnswerDetail;
