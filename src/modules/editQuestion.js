@@ -16,6 +16,7 @@ export const addQuestion = (text) => ({
       { ansId: 0, text: "A" },
       { ansId: 1, text: "B" },
     ],
+    time: 0,
   },
 });
 

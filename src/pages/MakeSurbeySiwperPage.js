@@ -37,15 +37,9 @@ function MakeSurbeySwiperPage({ index }) {
   const onEditAnswer = (questionId, answerId, text) =>
     dispatch(editAnswer(questionId, answerId, text)); //답변 수정
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-  };
-
-  const onChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setTimeCount(value);
+  const onChange = () => {
+    setTimeCount(1 - timeCount);
+    console.log(timeCount);
   };
 
   const focusIndex =
@@ -75,16 +69,9 @@ function MakeSurbeySwiperPage({ index }) {
                     id={question.id}
                   />
 
-                  <form onSubmit={onSubmit}>
-                    <input
-                      type="question"
-                      value={timeCount}
-                      placeholder="0"
-                      required
-                      onChange={onChange}
-                    />
-                    <input type="submit" value="초" />
-                  </form>
+                  <button onClick={onChange}>
+                    {timeCount ? "타이머 켜기" : "타이머 끄기"}{" "}
+                  </button>
 
                   <EditAnswerDetail
                     answer={question.answer[0].text}
