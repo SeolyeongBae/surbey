@@ -3,6 +3,7 @@ const ADD_QUESTION = "edit/ADD_QUESTION";
 const DELETE_QUESTION = "edit/DETELE_QUESTION";
 const EDIT_QUESTION = "edit/EDIT_QUESTION";
 const EDIT_ANSWER = "edit/EDIT_ANSWER";
+const EDIT_TIME = "edit/EDIT_TIME";
 
 let nextId = 1; // 고유 id
 
@@ -45,6 +46,16 @@ export const editAnswer = (questionId, answerId, text) => ({
   },
 });
 
+//타이머 수정 엑션
+//Boolean 으로 해도 되지만 나중에 시간을 커스텀할 때 time을 넣게 하기 위해서 number로 둠.
+export const editTime = (id, time) => ({
+  type: EDIT_TIME,
+  question: {
+    id: id,
+    time: time,
+  },
+});
+
 /* 초기 상태 선언 */
 const initialState = [];
 
@@ -58,6 +69,12 @@ export default function editReducer(state = initialState, action) {
       return state.map((question) =>
         question.id === action.question.id // id 가 일치하면
           ? { ...question, text: action.question.text } // text 값을 바꿔준다. 불변성 유지를 위해 스프레드 연산자 사용
+          : question
+      );
+    case EDIT_TIME:
+      return state.map((question) =>
+        question.id === action.question.id // id 가 일치하면
+          ? { ...question, time: action.question.time } // time 값을 바꿔준다. 불변성 유지를 위해 스프레드 연산자 사용
           : question
       );
     case EDIT_ANSWER:

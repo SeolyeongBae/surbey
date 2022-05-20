@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { useDispatch, useSelector } from "react-redux";
 import EditQuestionDetail from "../components/editQuestionDetail";
 import EditAnswerDetail from "../components/editAnswerDetail";
-import { editAnswer, editQuestion } from "../modules/editQuestion";
+import { editAnswer, editQuestion, editTime } from "../modules/editQuestion";
 import { useLocation } from "react-router-dom";
 
 SwiperCore.use([Navigation, Pagination]);
@@ -34,17 +34,19 @@ function MakeSurbeySwiperPage({ index }) {
 
   const editQuestions = useSelector((state) => state.editReducer);
   const onEdit = (id, text) => dispatch(editQuestion(id, text)); //질문 수정
+  const onEditTime = (id, time) => dispatch(editTime(id, time)); //질문 수정
   const onEditAnswer = (questionId, answerId, text) =>
     dispatch(editAnswer(questionId, answerId, text)); //답변 수정
 
-  const onChange = () => {
+  const onChange = (e) => {
     setTimeCount(1 - timeCount);
-    console.log(timeCount);
+    onEditTime(parseInt(e.target.name), timeCount);
   };
 
   const focusIndex =
     location.state.focusIndex == null ? 1 : location.state.focusIndex;
   //새로고침하면 안되는 이유 : 스토어에 들어있는게 날아감.
+  //이전 페이지에서 swiper로 넘어오며 어떤 index를 먼저 보여줄지 결정하는 게 focus index다.
 
   return (
     <div>
@@ -69,8 +71,8 @@ function MakeSurbeySwiperPage({ index }) {
                     id={question.id}
                   />
 
-                  <button onClick={onChange}>
-                    {timeCount ? "타이머 켜기" : "타이머 끄기"}{" "}
+                  <button name={question.id} onClick={onChange}>
+                    {timeCount ? "타이머 끄기" : "타이머 켜기"}
                   </button>
 
                   <EditAnswerDetail
