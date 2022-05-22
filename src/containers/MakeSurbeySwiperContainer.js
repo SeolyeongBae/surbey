@@ -30,6 +30,7 @@ function MakeSurbeySwiperContainer({ focusIndex }) {
   const onChange = (e) => {
     setTimeCount(1 - timeCount);
     onEditTime(parseInt(e.target.name), timeCount);
+    console.log(editQuestions);
   };
 
   return (
