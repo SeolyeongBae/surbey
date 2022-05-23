@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPost } from "../modules/albums";
+import { getQuestion } from "../modules/albums";
 import Discription from "../components/Discription";
 
-function PhotoContainer({ postId }) {
+function ResponseContainer({ postId }) {
   const { data, loading, error } = useSelector(
-    (state) => state.photoReducer.photo[postId]
+    (state) => state.responseReducer.question[postId]
   ) || {
     loading: false,
     data: null,
@@ -14,7 +14,7 @@ function PhotoContainer({ postId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPost(postId));
+    dispatch(getQuestion(postId));
   }, [postId, dispatch]);
 
   if (loading && !data) return <div>로딩중...</div>; // 로딩중이면서, 데이터가 없을 때에만 로딩중... 표시
@@ -23,7 +23,7 @@ function PhotoContainer({ postId }) {
 
   console.log("data", data);
 
-  return <Discription post={data} />;
+  return <div>테스트</div>;
 }
 
-export default PhotoContainer;
+export default ResponseContainer;
