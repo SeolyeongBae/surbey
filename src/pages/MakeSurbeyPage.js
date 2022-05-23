@@ -6,6 +6,7 @@ function MakeSurbeyPage() {
   return (
     <>
       <EditQuestionContainer />
+      <button>설문지 완성하기</button>
     </>
   );
 }

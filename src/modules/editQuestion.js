@@ -79,18 +79,18 @@ export default function editReducer(state = initialState, action) {
       );
     case EDIT_ANSWER:
       return state.map((question) => {
-        const ansEditId = 1 - action.answer.answerId;
-        //수정하지 않을 대상 답변 아이디
-        // ans ID가 0이면 toggle된다.
+        const ansArray = [...question.answer];
+
+        ansArray[action.answer.answerId] = {
+          //불변성을 지키기 위해 스프레드+concat
+          ansId: action.answer.answerId,
+          text: action.answer.text,
+        };
 
         return question.id === action.answer.questionId // id 가 일치하면
           ? {
               ...question,
-              answer: [[...question.answer][ansEditId]].concat({
-                //불변성을 지키기 위해 스프레드+concat
-                ansId: action.answer.answerId,
-                text: action.answer.text,
-              }),
+              answer: ansArray,
             }
           : question;
       });
