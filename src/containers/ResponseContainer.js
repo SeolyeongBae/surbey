@@ -1,7 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getQuestion } from "../modules/albums";
-import Discription from "../components/Discription";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import ResponseAnswerSwiper from "../components/responseAnswerSwiper";
+
+const outerStyle = {
+  height: "15em",
+  fontSize: "1rem",
+  lineHeight: 1.5,
+  display: "flex",
+};
+
+SwiperCore.use([Navigation, Pagination]);
 
 function ResponseContainer({ postId }) {
   const { data, loading, error } = useSelector(
@@ -23,7 +34,24 @@ function ResponseContainer({ postId }) {
 
   console.log("data", data);
 
-  return <div>테스트</div>;
+  return (
+    <>
+      <Swiper
+        className="banner"
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        allowTouchMove={false}
+        pagination={{ clickable: true }}
+      >
+        <SwiperSlide>
+          <div style={outerStyle}>
+            <ResponseAnswerSwiper index={1} question={data} />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
 }
 
 export default ResponseContainer;
