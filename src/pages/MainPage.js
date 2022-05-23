@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 
 function MainPage() {
   return (
-    <ul>
-      <li>
+    <>
+      <div>
         <Link to="/search">검색하기</Link>
-      </li>
-      <il>
-        <Link to="/edit"> 질문 만들기 </Link>
-      </il>
-    </ul>
+      </div>
+      <div> 설문을 만들고 싶으신가요~?</div>
+      <div>
+        <Link to="/edit/info"> 질문 만들기 </Link>
+      </div>
+    </>
   );
 }
 
