@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
-import responseReducer, { postsSaga } from "./albums";
+import responseReducer, { postsSaga } from "./getQuestion";
 import editReducer from "./editQuestion";
 
 const rootReducer = combineReducers({ responseReducer, editReducer });

@@ -46,8 +46,8 @@ function MakeSurbeySwiperContainer({ focusIndex }) {
       >
         {editQuestions &&
           editQuestions.map((question, index) => (
-            <SwiperSlide>
-              <div key={question.id} style={outerStyle}>
+            <SwiperSlide key={question.id}>
+              <div style={outerStyle}>
                 <EditQuestionSwiper
                   index={index}
                   question={question}

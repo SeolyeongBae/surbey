@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //json placeholder로부터 응답을 받아옴
-export const getQuestion = () => {
+export const getQuestionsList = () => {
   return axios.get("http://localhost:4000/questionJson");
 };
 
