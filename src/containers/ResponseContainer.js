@@ -4,6 +4,9 @@ import { getQuestions } from "../modules/getQuestion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import ResponseAnswerSwiper from "../components/responseAnswerSwiper";
+import "swiper/css"; //basic
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const outerStyle = {
   height: "15em",
@@ -43,9 +46,11 @@ function ResponseContainer({ postId }) {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <div style={outerStyle}>
-            <ResponseAnswerSwiper index={1} question={questions} />
-          </div>
+          {questions.data.map((question, index) => (
+            <div style={outerStyle} key={question.id}>
+              <ResponseAnswerSwiper index={index} question={question} />
+            </div>
+          ))}
         </SwiperSlide>
       </Swiper>
     </>
