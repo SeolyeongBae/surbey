@@ -42,16 +42,15 @@ function ResponseContainer({ postId }) {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        allowTouchMove={false}
         pagination={{ clickable: true }}
       >
-        <SwiperSlide>
-          {questions.data.map((question, index) => (
-            <div style={outerStyle} key={question.id}>
+        {questions.data.map((question, index) => (
+          <SwiperSlide key={question.id}>
+            <div style={outerStyle}>
               <ResponseAnswerSwiper index={index} question={question} />
             </div>
-          ))}
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

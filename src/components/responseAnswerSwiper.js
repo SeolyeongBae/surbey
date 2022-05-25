@@ -13,8 +13,8 @@ function ResponseAnswerSwiper({ index, question }) {
       <div style={innerStyle}>
         <div> Q{index} </div>
         <div> {question.text}</div>
-        <div> {question.answer[0].text}</div>
-        <div> {question.answer[1].text}</div>
+        <button> {question.answer[0].text}</button>
+        <button> {question.answer[1].text}</button>
       </div>
     </>
   );
