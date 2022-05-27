@@ -7,14 +7,14 @@ const innerStyle = {
   margin: "0 auto",
 };
 
-function ResponseAnswerSwiper({ index, question }) {
+function ResponseAnswerSwiper({ index, question, goNext }) {
   return (
     <>
       <div style={innerStyle}>
         <div> Q{index} </div>
         <div> {question.text}</div>
-        <button> {question.answer[0].text}</button>
-        <button> {question.answer[1].text}</button>
+        <button onClick={goNext}> {question.answer[0].text}</button>
+        <button onClick={goNext}> {question.answer[1].text}</button>
       </div>
     </>
   );

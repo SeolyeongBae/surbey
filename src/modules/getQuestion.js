@@ -10,9 +10,9 @@ import { takeEvery } from "redux-saga/effects";
 
 //액션 타입
 
-const GET_QUESTIONS = "response/GET_QUESTIONS";
-const GET_QUESTIONS_SUCCESS = "response/GET_QUESTIONS_SUCCESS";
-const GET_QUESTIONS_ERROR = "response/GET_QUESTIONS_ERROR";
+const GET_QUESTIONS = "get/GET_QUESTIONS";
+const GET_QUESTIONS_SUCCESS = "get/GET_QUESTIONS_SUCCESS";
+const GET_QUESTIONS_ERROR = "get/GET_QUESTIONS_ERROR";
 
 //saga
 export const getQuestions = (url) => ({

@@ -18,6 +18,8 @@ const outerStyle = {
 SwiperCore.use([Navigation, Pagination]);
 
 function ResponseContainer({ postId }) {
+  const swiperRef = React.useRef(null);
+
   const { questions, loading, error } = useSelector(
     (state) => state.responseReducer.question
   ) || {
@@ -35,19 +37,30 @@ function ResponseContainer({ postId }) {
   if (error) return <div>에러 발생!</div>;
   if (!questions) return null;
 
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
   return (
     <>
       <Swiper
+        ref={swiperRef}
         className="banner"
         spaceBetween={50}
         slidesPerView={1}
-        navigation
+        onInit={2}
         pagination={{ clickable: true }}
       >
         {questions.data.map((question, index) => (
           <SwiperSlide key={question.id}>
             <div style={outerStyle}>
-              <ResponseAnswerSwiper index={index} question={question} />
+              <ResponseAnswerSwiper
+                index={index}
+                question={question}
+                goNext={goNext}
+              />
             </div>
           </SwiperSlide>
         ))}
