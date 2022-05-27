@@ -50,7 +50,6 @@ function ResponseContainer({ postId }) {
         className="banner"
         spaceBetween={50}
         slidesPerView={1}
-        onInit={2}
         pagination={{ clickable: true }}
       >
         {questions.data.map((question, index) => (
