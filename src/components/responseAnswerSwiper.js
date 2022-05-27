@@ -7,14 +7,23 @@ const innerStyle = {
   margin: "0 auto",
 };
 
-function ResponseAnswerSwiper({ index, question, goNext }) {
+function ResponseAnswerSwiper({ index, question, goNext, selectAnswer }) {
+  const ansClick = (e) => {
+    selectAnswer(index, e.target.name);
+    goNext();
+  };
+
   return (
     <>
       <div style={innerStyle}>
         <div> Q{index} </div>
         <div> {question.text}</div>
-        <button onClick={goNext}> {question.answer[0].text}</button>
-        <button onClick={goNext}> {question.answer[1].text}</button>
+        <button onClick={ansClick} name={question.answer[0].ansId}>
+          {question.answer[0].text}
+        </button>
+        <button onClick={ansClick} name={question.answer[1].ansId}>
+          {question.answer[1].text}
+        </button>
       </div>
     </>
   );

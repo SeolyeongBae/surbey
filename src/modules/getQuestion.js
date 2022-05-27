@@ -21,7 +21,6 @@ export const getQuestions = (url) => ({
   meta: url,
 });
 
-//const getQuestionSaga = createPromiseSagaById(GET_QUESTION, getQuestionById);
 const getQuestionsSaga = createPromiseSaga(GET_QUESTIONS, getQuestionsList);
 
 // 사가들을 합치기
