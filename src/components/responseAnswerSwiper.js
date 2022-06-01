@@ -20,6 +20,7 @@ function ResponseAnswerSwiper({
   };
 
   const [sec, setSec] = useState(5);
+  const time = useRef(5);
 
   const timerId = useRef(null);
   const [isTimeOut, setIsTimeOut] = useState(false);
@@ -27,7 +28,8 @@ function ResponseAnswerSwiper({
   useEffect(() => {
     if (isCurrent && question.time === 1) {
       timerId.current = setInterval(() => {
-        setSec(() => sec - 1);
+        setSec(time.current % 60);
+        time.current -= 1;
       }, 1000);
       return () => clearInterval(timerId.current);
     }
