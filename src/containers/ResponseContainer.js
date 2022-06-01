@@ -21,6 +21,7 @@ function ResponseContainer({ postId }) {
   const swiperRef = React.useRef(null);
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const { questions, loading, error } = useSelector(
     (state) => state.responseReducer.question
@@ -68,6 +69,9 @@ function ResponseContainer({ postId }) {
         slidesPerView={1}
         allowTouchMove={false}
         pagination={{ clickable: true }}
+        onSlideChange={(swiper) => {
+          setActiveIndex(() => swiper.activeIndex);
+        }}
       >
         {questions.data.map((question, index) => (
           <SwiperSlide key={question.id}>
@@ -77,10 +81,18 @@ function ResponseContainer({ postId }) {
                 question={question}
                 goNext={goNext}
                 selectAnswer={selectAnswer}
+                isCurrent={activeIndex === index}
               />
             </div>
           </SwiperSlide>
         ))}
+
+        <SwiperSlide>
+          <div style={outerStyle}>
+            <div>제출하러 가볼까요~?</div>
+            <button>제출</button>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
   );
