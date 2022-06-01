@@ -7,13 +7,18 @@ const Question = React.memo(function Question({ question, onRemove, index }) {
   const focusState = { focusIndex: index };
   return (
     <>
-      <button>
+      <button className="py-1  px-2 border border-gray-300 rounded-md">
         <Link to="detail" state={focusState}>
           수정
         </Link>
       </button>
 
-      <button onClick={() => onRemove(question.id)}> x </button>
+      <button
+        className="py-1  px-2 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700"
+        onClick={() => onRemove(question.id)}
+      >
+        x
+      </button>
     </>
   );
 });

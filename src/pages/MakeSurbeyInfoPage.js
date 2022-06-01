@@ -20,7 +20,7 @@ function MakeSurbeyInfopPage() {
 
   return (
     <>
-      <h3>설문 기초 정보 입력</h3>
+      <h3 className="text-3xl font-bold underline">설문 기초 정보 입력</h3>
 
       <EditSurbeyInfo subject={"제목"} value={title} setResult={setTitle} />
       <EditSurbeyInfo
@@ -50,9 +50,9 @@ function MakeSurbeyInfopPage() {
         customInput={<ExampleCustomInput />}
       />
 
-      <div>
+      <span className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700">
         <Link to="/edit"> 질문 만들기 </Link>
-      </div>
+      </span>
     </>
   );
 }
