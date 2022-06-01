@@ -9,11 +9,11 @@ const Question = React.memo(function Question({ question, onRemove, index }) {
     <>
       <button>
         <Link to="detail" state={focusState}>
-          문항 수정
+          수정
         </Link>
       </button>
 
-      <button onClick={() => onRemove(question.id)}> remove </button>
+      <button onClick={() => onRemove(question.id)}> x </button>
     </>
   );
 });
@@ -46,7 +46,7 @@ function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
   return (
     <div>
       <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />
-      <button onClick={() => onCreate("질문을 입력해 주세요")}>등록</button>
+      <button onClick={() => onCreate("질문을 입력해 주세요")}>추가</button>
     </div>
   );
 }
