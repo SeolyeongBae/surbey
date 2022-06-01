@@ -16,18 +16,22 @@ function MakeSurbeyInfopPage() {
     <>
       <div>설문 기초 정보 입력</div>
 
+      <div> 설문 제목을 입력하세요</div>
       <form>
         <input type="answer" placeholder="설문 제목" />
       </form>
 
+      <div> 설문 대상을 입력하세요</div>
       <form>
         <input type="answer" placeholder="설문 대상" />
       </form>
 
+      <div> 설문 목적을 입력하세요</div>
       <form>
         <input type="answer" placeholder="설문 목적" />
       </form>
 
+      <div> 설문 기간을 입력하세요</div>
       <DatePicker
         selected={startDate}
         selectsStart

@@ -1,18 +1,10 @@
-import React, { useState } from "react";
-import MySearchBar from "../components/searchBar";
-import PhotoContainer from "../containers/PhotoContainer";
+import React from "react";
+import ResponseContainer from "../containers/ResponseContainer";
 
 function SearchPage() {
-  const [postID, setpostID] = useState("1");
-
-  const setID = (number) => {
-    setpostID(number);
-  };
-
   return (
     <>
-      <MySearchBar setID={setID} />
-      <PhotoContainer postId={parseInt(postID, 10)} />
+      <ResponseContainer postId={parseInt("1", 10)} />
     </>
   );
 }
