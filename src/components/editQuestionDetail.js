@@ -44,26 +44,33 @@ function EditQuestionDetail({ question, onEdit, id }) {
   }, [searchInputRef]);
 
   return (
-    <div ref={searchInputRef}>
+    <span ref={searchInputRef}>
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
             <input
               type="question"
               placeholder="바꿀 질문을 입력해주세요"
+              className="mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
               value={newQuestion}
               required
               onChange={onChange}
             />
-            <input type="submit" value="Update Question" />
+            <input
+              className=" border border-gray-300 rounded-md"
+              type="submit"
+              value="저장"
+            />
           </form>
         </>
       ) : (
         <>
-          <div> {newQuestion} </div>
+          <div className="block p-2.5 w-full text-sm text-gray-900 bg-white ">
+            {newQuestion}
+          </div>
         </>
       )}
-    </div>
+    </span>
   );
 }
 

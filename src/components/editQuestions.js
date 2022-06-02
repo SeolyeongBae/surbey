@@ -33,7 +33,10 @@ const QuestionList = React.memo(function QuestionList({
     <ul>
       {questions &&
         questions.map((question, index) => (
-          <div key={question.id}>
+          <div
+            key={question.id}
+            className="border border-gray-300 rounded-md m-10 px-10"
+          >
             <div> Q{index} </div>
             <EditQuestionDetail
               question={question}
