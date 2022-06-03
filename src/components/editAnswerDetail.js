@@ -64,7 +64,7 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
         </>
       ) : (
         <>
-          <div className="py-5 px-2  bg-gray-50 rounded-md flex px-2">
+          <div className="py-5 bg-gray-50 rounded-md flex px-2">
             {newAnswer}
           </div>
         </>

@@ -44,33 +44,33 @@ function EditQuestionDetail({ question, onEdit, id }) {
   }, [searchInputRef]);
 
   return (
-    <span ref={searchInputRef}>
+    <div ref={searchInputRef} className="my-1 ">
       {editing ? (
         <>
-          <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 px-2">
+          <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 ">
             <input
               type="question"
               placeholder="바꿀 질문을 입력해주세요"
-              className="p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+              className="w-full py-2 px-2 text-gray-900 bg-white rounded-lg focus:ring-blue-500 focus:border-blue-500 "
               value={newQuestion}
               required
               onChange={onChange}
             />
             <input
-              className="inline-flex items-center justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               type="submit"
-              value="V"
+              value="save"
             />
           </form>
         </>
       ) : (
         <>
-          <div className="block p-2.5 w-full text-sm text-gray-900 ">
+          <div className="block w-full py-2 px-2 text-gray-900 ">
             {newQuestion}
           </div>
         </>
       )}
-    </span>
+    </div>
   );
 }
 

@@ -12,13 +12,6 @@ const Question = React.memo(function Question({ question, onRemove, index }) {
           수정
         </Link>
       </button>
-
-      <button
-        className="py-1  px-2 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700"
-        onClick={() => onRemove(question.id)}
-      >
-        x
-      </button>
     </>
   );
 });
@@ -30,11 +23,19 @@ const QuestionList = React.memo(function QuestionList({
   onEdit,
 }) {
   return (
-    <ul>
+    <>
       {questions &&
         questions.map((question, index) => (
-          <div key={question.id} className=" bg-gray-50  rounded-md my-10">
-            <div> Q{index} </div>
+          <div key={question.id} className="bg-gray-50 rounded-md my-10">
+            <div className="flex mx-10 py-2 flex-row justify-between ">
+              <div> Q{index} </div>
+              <button
+                className="py-1 px-2 font-semibold rounded-lg text-white bg-blue-500 hover:bg-blue-700"
+                onClick={() => onRemove(question.id)}
+              >
+                x
+              </button>
+            </div>
             <EditQuestionDetail
               question={question}
               onEdit={onEdit}
@@ -43,7 +44,7 @@ const QuestionList = React.memo(function QuestionList({
             <Question question={question} index={index} onRemove={onRemove} />
           </div>
         ))}
-    </ul>
+    </>
   );
 });
 
@@ -59,12 +60,11 @@ function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
           질문 추가
         </button>
 
-        <button
-          className="py-2 px-4 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300"
-          onClick={() => onCreate("질문을 입력해 주세요")}
-        >
-          편집 모드
-        </button>
+        <Link to="detail" state={{ focusIndex: 0 }}>
+          <button className="py-2 px-4 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300">
+            편집 모드
+          </button>
+        </Link>
       </div>
     </div>
   );
