@@ -13,13 +13,17 @@ function MakeSurbeyInfopPage() {
   const [object, setObject] = useState("");
 
   const ExampleCustomInput = React.forwardRef(({ value, onClick }, ref) => (
-    <button className="dateInput" onClick={onClick} ref={ref}>
+    <button
+      className="dateInput py-1 px-4  mx-0 rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300"
+      onClick={onClick}
+      ref={ref}
+    >
       {value}
     </button>
   ));
 
   return (
-    <>
+    <div className="flex flex flex-col px-10">
       <h3 className="text-3xl font-bold">설문 기초 정보 입력</h3>
 
       <EditSurbeyInfo subject={"제목"} value={title} setResult={setTitle} />
@@ -32,28 +36,33 @@ function MakeSurbeyInfopPage() {
 
       <div> 설문 기간을 입력하세요</div>
 
-      <DatePicker
-        selected={startDate}
-        selectsStart
-        value={startDate}
-        onChange={(date) => setStartDate(date)}
-        dateFormat="yyyy년 M월 d일"
-        customInput={<ExampleCustomInput />}
-      />
-
-      <DatePicker
-        selected={endDate}
-        selectsStart
-        value={endDate}
-        onChange={(date) => setEndDate(date)}
-        dateFormat="yyyy년 M월 d일"
-        customInput={<ExampleCustomInput />}
-      />
-
+      <div className="flex  flex-row justify-between">
+        <div>
+          <DatePicker
+            selected={startDate}
+            selectsStart
+            value={startDate}
+            onChange={(date) => setStartDate(date)}
+            dateFormat="yyyy/M/d"
+            customInput={<ExampleCustomInput />}
+          />
+        </div>
+        ~
+        <div>
+          <DatePicker
+            selected={endDate}
+            selectsStart
+            value={endDate}
+            onChange={(date) => setEndDate(date)}
+            dateFormat="yyyy/M/d"
+            customInput={<ExampleCustomInput />}
+          />
+        </div>
+      </div>
       <span className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700">
         <Link to="/edit"> 질문 만들기 </Link>
       </span>
-    </>
+    </div>
   );
 }
 

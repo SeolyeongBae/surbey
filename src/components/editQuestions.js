@@ -39,8 +39,11 @@ const QuestionList = React.memo(function QuestionList({
     <>
       {questions &&
         questions.map((question, index) => (
-          <div key={question.id} className="bg-gray-50 rounded-md my-10">
-            <div className="flex mx-10 py-2 flex-row justify-between ">
+          <div
+            key={question.id}
+            className="bg-gray-50 rounded-md my-10  px-10 "
+          >
+            <div className="flex py-2 flex-row justify-between ">
               <div className="py-1 rounded-lg text-sky-600  text-2xl font-bold">
                 {" "}
                 Q{index}.{" "}
@@ -58,7 +61,9 @@ const QuestionList = React.memo(function QuestionList({
               onEdit={onEdit}
               id={question.id}
             />
-            <Question index={index} />
+            <div className=" flex justify-end  pb-5 ">
+              <Question index={index} />
+            </div>
           </div>
         ))}
     </>
