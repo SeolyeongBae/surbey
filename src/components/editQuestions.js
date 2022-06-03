@@ -33,10 +33,7 @@ const QuestionList = React.memo(function QuestionList({
     <ul>
       {questions &&
         questions.map((question, index) => (
-          <div
-            key={question.id}
-            className="border border-gray-300 rounded-md m-10 px-10"
-          >
+          <div key={question.id} className=" bg-gray-50  rounded-md my-10">
             <div> Q{index} </div>
             <EditQuestionDetail
               question={question}
@@ -54,7 +51,21 @@ function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
   return (
     <div>
       <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />
-      <button onClick={() => onCreate("질문을 입력해 주세요")}>추가</button>
+      <div className="buttons my-5 flex flex-row justify-between ">
+        <button
+          className="py-2 px-4 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300"
+          onClick={() => onCreate("질문을 입력해 주세요")}
+        >
+          질문 추가
+        </button>
+
+        <button
+          className="py-2 px-4 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300"
+          onClick={() => onCreate("질문을 입력해 주세요")}
+        >
+          편집 모드
+        </button>
+      </div>
     </div>
   );
 }

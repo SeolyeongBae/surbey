@@ -65,7 +65,7 @@ function EditQuestionDetail({ question, onEdit, id }) {
         </>
       ) : (
         <>
-          <div className="block p-2.5 w-full text-sm text-gray-900 bg-white ">
+          <div className="block p-2.5 w-full text-sm text-gray-900 ">
             {newQuestion}
           </div>
         </>

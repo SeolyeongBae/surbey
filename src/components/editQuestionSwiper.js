@@ -24,7 +24,7 @@ function EditQuestionSwiper({
 }) {
   return (
     <>
-      <div style={innerStyle}>
+      <div style={innerStyle} className={"flex flex-col"}>
         <div> Q{index} </div>
         <EditQuestionDetail
           question={question}
@@ -35,15 +35,15 @@ function EditQuestionSwiper({
         <button
           name={question.id}
           onClick={onChange}
-          className={"inline-flex flex-shrink-0 "}
+          className={"inline-flex flex-shrink-0 items-center justify-center"}
         >
-          타이머 설정
+          Timer
           <Switch
             checked={timeCount}
             onChange={() => {}}
             className={classNames(
               timeCount ? "bg-indigo-600" : "bg-gray-200",
-              "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              "mx-2 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             )}
           >
             <span className="sr-only">Use setting</span>

@@ -43,12 +43,12 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
   }, [answerInputRef]);
 
   return (
-    <div ref={answerInputRef} className="mx-1">
+    <div ref={answerInputRef} className="mx-2 my-4">
       {editing ? (
         <>
-          <form onSubmit={onSubmit} className="my-4 ">
+          <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 ">
             <input
-              className="py-1 px-2 w-full"
+              className="py-5 px-2 w-full"
               type="answer"
               placeholder="바꿀 정답을 입력해주세요"
               value={newAnswer}
@@ -56,17 +56,16 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
               onChange={onChange}
             />
             <input
-              className="items-center inline-flex justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               type="submit"
-              value="저장"
+              value="save"
             />
           </form>
         </>
       ) : (
         <>
-          <div className="py-1  px-2  bg-gray-50 my-4 rounded-md flex px-2">
-            {" "}
-            {newAnswer}{" "}
+          <div className="py-5 px-2  bg-gray-50 rounded-md flex px-2">
+            {newAnswer}
           </div>
         </>
       )}
