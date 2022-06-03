@@ -20,7 +20,7 @@ function MakeSurbeyInfopPage() {
 
   return (
     <>
-      <h3 className="text-3xl font-bold underline">설문 기초 정보 입력</h3>
+      <h3 className="text-3xl font-bold">설문 기초 정보 입력</h3>
 
       <EditSurbeyInfo subject={"제목"} value={title} setResult={setTitle} />
       <EditSurbeyInfo
