@@ -47,19 +47,19 @@ function EditQuestionDetail({ question, onEdit, id }) {
     <span ref={searchInputRef}>
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 px-2">
             <input
               type="question"
               placeholder="바꿀 질문을 입력해주세요"
-              className="mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+              className="p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
               value={newQuestion}
               required
               onChange={onChange}
             />
             <input
-              className=" border border-gray-300 rounded-md"
+              className="inline-flex items-center justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               type="submit"
-              value="저장"
+              value="V"
             />
           </form>
         </>

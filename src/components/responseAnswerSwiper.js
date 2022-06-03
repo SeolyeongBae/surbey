@@ -17,6 +17,9 @@ function ResponseAnswerSwiper({
   const ansClick = (e) => {
     selectAnswer(index, e.target.name);
     goNext();
+    if (question.time === 1) {
+      setIsTimeOut(() => true);
+    }
   };
 
   const [sec, setSec] = useState(5);
@@ -61,11 +64,11 @@ function ResponseAnswerSwiper({
                 <div className="timer">{sec} 초</div>
               </div>
             )}
-            <button onClick={ansClick} name={question.answer[0].ansId}>
-              {question.answer[0].text}
+            <button onClick={ansClick} name={0}>
+              {question.answer[0]}
             </button>
-            <button onClick={ansClick} name={question.answer[1].ansId}>
-              {question.answer[1].text}
+            <button onClick={ansClick} name={1}>
+              {question.answer[1]}
             </button>
           </>
         )}

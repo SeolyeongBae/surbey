@@ -43,23 +43,31 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
   }, [answerInputRef]);
 
   return (
-    <div ref={answerInputRef}>
+    <div ref={answerInputRef} className="mx-1">
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} className="my-4 ">
             <input
+              className="py-1 px-2 w-full"
               type="answer"
-              placeholder="바꿀 질문을 입력해주세요"
+              placeholder="바꿀 정답을 입력해주세요"
               value={newAnswer}
               required
               onChange={onChange}
             />
-            <input type="submit" value="Update Ans" />
+            <input
+              className="items-center inline-flex justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              type="submit"
+              value="저장"
+            />
           </form>
         </>
       ) : (
         <>
-          <div> {newAnswer} </div>
+          <div className="py-1  px-2  bg-gray-50 my-4 rounded-md flex px-2">
+            {" "}
+            {newAnswer}{" "}
+          </div>
         </>
       )}
     </div>

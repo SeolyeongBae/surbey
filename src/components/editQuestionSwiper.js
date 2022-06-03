@@ -8,7 +8,7 @@ function classNames(...classes) {
 }
 
 const innerStyle = {
-  width: "10rem",
+  width: "15rem",
   border: "1px solid teal",
   borderRadius: ".25rem",
   margin: "0 auto",
@@ -32,7 +32,11 @@ function EditQuestionSwiper({
           id={question.id}
         />
 
-        <button name={question.id} onClick={onChange}>
+        <button
+          name={question.id}
+          onClick={onChange}
+          className={"inline-flex flex-shrink-0 "}
+        >
           타이머 설정
           <Switch
             checked={timeCount}

@@ -1,0 +1,29 @@
+[
+  {
+    "questionContent": "강용석이 도지사 선거에 영향을 줬어?",
+    "time": 0,
+    "questionOrder": 0,
+    "answerDescription": [
+      "yes",
+      "no"
+    ]
+  },
+  {
+    "questionContent": "윤석열 정부의 경제 성장 정책이 최고 아니냐?",
+    "time": 0,
+    "questionOrder": 0,
+    "answerDescription": [
+      "yes",
+      "no"
+    ]
+  },
+  {
+    "questionContent": "윤석열 어때?",
+    "time": 0,
+    "questionOrder": 0,
+    "answerDescription": [
+      "yes",
+      "no"
+    ]
+  }
+]

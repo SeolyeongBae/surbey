@@ -9,7 +9,7 @@ import EditQuestionSwiper from "../components/editQuestionSwiper";
 import { editAnswer, editQuestion, editTime } from "../modules/editQuestion";
 
 const outerStyle = {
-  height: "15em",
+  height: "20em",
   fontSize: "1rem",
   lineHeight: 1.5,
   display: "flex",
