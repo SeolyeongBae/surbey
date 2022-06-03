@@ -48,7 +48,7 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
         <>
           <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 ">
             <input
-              className="py-5 px-2 w-full"
+              className="py-5 px-5 w-full"
               type="answer"
               placeholder="바꿀 정답을 입력해주세요"
               value={newAnswer}
@@ -56,7 +56,7 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
               onChange={onChange}
             />
             <input
-              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               type="submit"
               value="save"
             />
@@ -64,7 +64,7 @@ function EditAnswerDetail({ answer, onEdit, questionId, answerId }) {
         </>
       ) : (
         <>
-          <div className="py-5 bg-gray-50 rounded-md flex px-2">
+          <div className="py-5 px-5 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md  ">
             {newAnswer}
           </div>
         </>

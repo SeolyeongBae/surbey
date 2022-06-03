@@ -44,7 +44,7 @@ function EditQuestionDetail({ question, onEdit, id }) {
   }, [searchInputRef]);
 
   return (
-    <div ref={searchInputRef} className="my-1 ">
+    <div ref={searchInputRef} className="my-3 h-10 ">
       {editing ? (
         <>
           <form onSubmit={onSubmit} className="inline-flex flex-shrink-0 ">
@@ -57,7 +57,7 @@ function EditQuestionDetail({ question, onEdit, id }) {
               onChange={onChange}
             />
             <input
-              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              className="items-center mx-1 justify-center px-2 py-1 border border-transparent shadow-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
               type="submit"
               value="save"
             />
