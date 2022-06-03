@@ -3,15 +3,28 @@ import { Link } from "react-router-dom";
 import EditQuestionDetail from "../components/editQuestionDetail";
 
 /* 해당 질문에 대한 수정/삭제 버튼을 띄운다.*/
-const Question = React.memo(function Question({ question, onRemove, index }) {
+const Question = React.memo(function Question({ index }) {
   const focusState = { focusIndex: index };
   return (
     <>
-      <button className="py-1  px-2 border border-gray-300 rounded-md">
-        <Link to="detail" state={focusState}>
-          수정
-        </Link>
-      </button>
+      <Link to="detail" state={focusState}>
+        <button className="py-1  px-2 border border-gray-300 rounded-md hover:bg-blue-100 ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#4a90e2"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+          </svg>
+        </button>
+      </Link>
     </>
   );
 });
@@ -28,12 +41,16 @@ const QuestionList = React.memo(function QuestionList({
         questions.map((question, index) => (
           <div key={question.id} className="bg-gray-50 rounded-md my-10">
             <div className="flex mx-10 py-2 flex-row justify-between ">
-              <div> Q{index} </div>
+              <div className="py-1 rounded-lg text-sky-600  text-2xl font-bold">
+                {" "}
+                Q{index}.{" "}
+              </div>
               <button
-                className="py-1 px-2 font-semibold rounded-lg text-white bg-blue-500 hover:bg-blue-700"
                 onClick={() => onRemove(question.id)}
+                type="button"
+                class=" w-10 h-10 text-blue-700 hover:bg-blue-500 bg-white hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
               >
-                x
+                X
               </button>
             </div>
             <EditQuestionDetail
@@ -41,7 +58,7 @@ const QuestionList = React.memo(function QuestionList({
               onEdit={onEdit}
               id={question.id}
             />
-            <Question question={question} index={index} onRemove={onRemove} />
+            <Question index={index} />
           </div>
         ))}
     </>
