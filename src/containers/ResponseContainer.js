@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const outerStyle = {
-  height: "15em",
+  height: "25em",
   fontSize: "1rem",
   lineHeight: 1.5,
   display: "flex",

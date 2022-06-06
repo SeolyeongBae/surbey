@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const innerStyle = {
-  width: "10rem",
-  border: "1px solid teal",
-  borderRadius: ".25rem",
+  width: "18rem",
+  borderRadius: "2rem",
   margin: "0 auto",
+  padding: "1em",
 };
 
 function ResponseAnswerSwiper({
@@ -48,28 +48,47 @@ function ResponseAnswerSwiper({
 
   return (
     <>
-      <div style={innerStyle}>
-        <div> Q{index} </div>
+      <div style={innerStyle} className={"flex flex-col bg-gray-50"}>
+        <div className="py-1 px-2 rounded-lg text-sky-600  text-2xl font-bold">
+          {" "}
+          Q{index}.{" "}
+        </div>
         <div> {question.text}</div>
         {isTimeOut ? (
           <>
-            <div>더이상 응답하지 못하는 질문이에요!</div>
+            <div className={"grow flex justify-center items-center "}>
+              더이상 응답하지 못하는 질문이에요!
+            </div>
           </>
         ) : (
           <>
             {" "}
             {question.time === 1 && (
-              <div>
+              <div
+                className={
+                  "inline-flex flex-shrink-0 items-center justify-center"
+                }
+              >
                 제한 시간이 있어요!
                 <div className="timer">{sec} 초</div>
               </div>
             )}
-            <button onClick={ansClick} name={0}>
-              {question.answer[0]}
-            </button>
-            <button onClick={ansClick} name={1}>
-              {question.answer[1]}
-            </button>
+            <div className="button-container my-5 flex flex-col">
+              <button
+                onClick={ansClick}
+                name={0}
+                className="py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md  "
+              >
+                {question.answer[0]}
+              </button>
+              <button
+                onClick={ansClick}
+                name={1}
+                className="py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md  "
+              >
+                {question.answer[1]}
+              </button>
+            </div>
           </>
         )}
       </div>
