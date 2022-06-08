@@ -7,6 +7,7 @@ import ResponseAnswerSwiper from "../components/responseAnswerSwiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import SubmitAnswerSurvey from "../components/submitAnswerSurvey";
 
 const outerStyle = {
   height: "25em",
@@ -88,8 +89,7 @@ function ResponseContainer({ surveyId }) {
 
         <SwiperSlide>
           <div style={outerStyle}>
-            <div>제출하러 가볼까요~?</div>
-            <button>제출</button>
+            <SubmitAnswerSurvey></SubmitAnswerSurvey>
           </div>
         </SwiperSlide>
       </Swiper>
