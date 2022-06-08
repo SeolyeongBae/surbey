@@ -22,7 +22,6 @@ function SubmitAnswerSurvey({}) {
       >
         {isSubmited ? (
           <>
-            {" "}
             <div className="py-1 px-2 rounded-lg text-sky-600  text-2xl font-bold">
               응답이 완료되었습니다.
             </div>
