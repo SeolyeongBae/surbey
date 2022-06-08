@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import EditSurbeyInfo from "../components/editSurbeyInfo";
+import { makeSurvey } from "../api/getQuestion";
 
 function MakeSurbeyInfopPage() {
   const [startDate, setStartDate] = useState(new Date());
@@ -21,6 +22,19 @@ function MakeSurbeyInfopPage() {
       {value}
     </button>
   ));
+
+  const onCreateSurvey = () => {
+    const surveyInfo = {
+      endDate: endDate,
+      password: 1234,
+      purpose: object,
+      startDate: startDate,
+      title: title,
+    };
+
+    const key = makeSurvey(surveyInfo);
+    console.log(key);
+  };
 
   return (
     <div className="flex flex flex-col px-10 py-10">
@@ -62,8 +76,11 @@ function MakeSurbeyInfopPage() {
         </div>
       </div>
 
-      <button className="mt-5 py-2 px-4 font-semibold rounded-lg text-white bg-blue-500 hover:bg-blue-700">
-        <Link to="/edit"> 질문 만들기</Link>
+      <button
+        onClick={onCreateSurvey}
+        className="mt-5 py-2 px-4 font-semibold rounded-lg text-white bg-blue-500 hover:bg-blue-700"
+      >
+        질문 만들기
       </button>
     </div>
   );

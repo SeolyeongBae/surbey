@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="response/:id" element={<SearchPage />} />
-      <Route path="edit" element={<MakeSurbeyPage />} />
+      <Route path="surveys/:id" element={<MakeSurbeyPage />} />
       <Route path="edit/info" element={<MakeSurbeyInfopPage />} />
       <Route path="edit/detail" element={<MakeSurbeySwiperPage />} />
     </Routes>

@@ -49,8 +49,7 @@ function ResponseAnswerSwiper({
     <>
       <div style={innerStyle} className={"flex flex-col bg-gray-50"}>
         <div className="py-2 px-2 rounded-lg text-sky-600 text-2xl font-bold">
-          {" "}
-          Q{index}.{" "}
+          Q{index}.
         </div>
         <div className="py-3 px-2"> {question.text}</div>
         {isTimeOut ? (
@@ -81,17 +80,17 @@ function ResponseAnswerSwiper({
             <div className="button-container my-5 flex flex-col grow justify-center">
               <button
                 onClick={ansClick}
-                name={0}
+                name={question.answer[0].answerId}
                 className={`py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md `}
               >
-                {question.answer[0]}
+                {question.answer[0].answerQuestion}
               </button>
               <button
                 onClick={ansClick}
-                name={1}
+                name={question.answer[1].answerId}
                 className="py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md  "
               >
-                {question.answer[1]}
+                {question.answer[1].answerQuestion}
               </button>
             </div>
           </>

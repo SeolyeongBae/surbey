@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function EditSurbeyInfo({ subject, value, setResult }) {
   const onChange = (event) => {
@@ -6,7 +6,6 @@ function EditSurbeyInfo({ subject, value, setResult }) {
       target: { value },
     } = event;
     setResult(value);
-    console.log(subject, value);
   };
 
   return (
