@@ -9,6 +9,7 @@ function VerifyQuestionContainer() {
   const editQuestions = useSelector((state) => state.editReducer);
 
   const onClick = () => {
+    console.log(id);
     const verifyingArr = editQuestions.map((question) => ({
       answerDescription: [question.answer[0].text, question.answer[1].text],
       questionContent: question.text,
@@ -16,9 +17,7 @@ function VerifyQuestionContainer() {
       time: question.time,
     }));
 
-    const result = verifyQuestions(id, verifyingArr);
-    console.log(result);
-    result.then((data) => console.log(data));
+    verifyQuestions(id, verifyingArr);
   };
 
   return (

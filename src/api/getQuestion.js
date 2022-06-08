@@ -15,7 +15,7 @@ export const verifyQuestions = async (id, QuestionArray) => {
   console.log(QuestionArray, "QuestionArray");
 
   await axios
-    .put(`/survey/${id}/questions/analysis`, {
+    .put(`https://api.surbey.kro.kr/survey/${id}/questions/analysis`, {
       questionRequestList: QuestionArray,
     })
     .then(function (response) {
