@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditQuestionDetail from "../components/editQuestionDetail";
+import EditQuestionState from "./editQuestionState";
 
 /* 해당 질문에 대한 수정/삭제 버튼을 띄운다.*/
 const Question = React.memo(function Question({ index }) {
@@ -61,7 +62,8 @@ const QuestionList = React.memo(function QuestionList({
               onEdit={onEdit}
               id={question.id}
             />
-            <div className=" flex justify-end  pb-5 ">
+            <div className=" flex justify-between pb-5 ">
+              <EditQuestionState number={index} />
               <Question index={index} />
             </div>
           </div>
