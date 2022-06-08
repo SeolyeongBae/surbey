@@ -11,9 +11,9 @@ function MakeSurbeySwiperPage() {
   //이전 페이지에서 swiper로 넘어오며 어떤 index를 먼저 보여줄지 결정하는 게 focus index다.
 
   return (
-    <div>
-      <div>
-        <Link to="/edit"> 뒤로가기 </Link>
+    <div className="flex flex flex-col py-10">
+      <div className="py-1 rounded-lg text-2xl font-bold px-10 mb-10">
+        <Link to="/edit"> 설문 제작 </Link>
       </div>
       <MakeSurbeySwiperContainer focusIndex={focusIndex} />
     </div>
