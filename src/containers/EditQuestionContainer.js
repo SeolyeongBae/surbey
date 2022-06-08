@@ -7,7 +7,7 @@ import {
 } from "../modules/editQuestion";
 import EditQuestions from "../components/editQuestions";
 
-function EditQuestionContainer() {
+function EditQuestionContainer({ isPressed }) {
   const editQuestions = useSelector((state) => state.editReducer);
   const dispatch = useDispatch();
 
@@ -23,6 +23,7 @@ function EditQuestionContainer() {
       onCreate={onCreate}
       onRemove={onRemove}
       onEdit={onEdit}
+      isPressed={isPressed}
     />
   );
 }

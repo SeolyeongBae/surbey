@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { verifyQuestions } from "../api/getQuestion";
 
-function VerifyQuestionContainer() {
+function VerifyQuestionContainer({ press }) {
   const { id } = useParams();
 
   const editQuestions = useSelector((state) => state.editReducer);
@@ -18,6 +18,9 @@ function VerifyQuestionContainer() {
     }));
 
     verifyQuestions(id, verifyingArr);
+    setTimeout(() => {
+      press(true);
+    }, 1000);
   };
 
   return (

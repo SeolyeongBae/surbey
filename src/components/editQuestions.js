@@ -35,6 +35,7 @@ const QuestionList = React.memo(function QuestionList({
   questions,
   onRemove,
   onEdit,
+  isPressed,
 }) {
   return (
     <>
@@ -63,7 +64,7 @@ const QuestionList = React.memo(function QuestionList({
               id={question.id}
             />
             <div className=" flex justify-between pb-5 ">
-              <EditQuestionState number={index} />
+              {isPressed ? <EditQuestionState number={index} /> : <div></div>}
               <Question index={index} />
             </div>
           </div>
@@ -72,10 +73,15 @@ const QuestionList = React.memo(function QuestionList({
   );
 });
 
-function EditQuestions({ questions, onCreate, onRemove, onEdit }) {
+function EditQuestions({ questions, onCreate, onRemove, onEdit, isPressed }) {
   return (
     <div>
-      <QuestionList questions={questions} onRemove={onRemove} onEdit={onEdit} />
+      <QuestionList
+        questions={questions}
+        onRemove={onRemove}
+        onEdit={onEdit}
+        isPressed={isPressed}
+      />
       <div className="buttons my-5 flex flex-row justify-between ">
         <button
           className="py-2 px-4 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300"
