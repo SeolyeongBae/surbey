@@ -7,9 +7,10 @@ import ResponseAnswerSwiper from "../components/responseAnswerSwiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import SubmitAnswerSurvey from "../components/submitAnswerSurvey";
 
 const outerStyle = {
-  height: "15em",
+  height: "100vh",
   fontSize: "1rem",
   lineHeight: 1.5,
   display: "flex",
@@ -17,7 +18,7 @@ const outerStyle = {
 
 SwiperCore.use([Navigation, Pagination]);
 
-function ResponseContainer({ postId }) {
+function ResponseContainer({ surveyId }) {
   const swiperRef = React.useRef(null);
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState([]);
@@ -32,8 +33,8 @@ function ResponseContainer({ postId }) {
   };
 
   useEffect(() => {
-    dispatch(getQuestions(postId));
-  }, [postId, dispatch]);
+    dispatch(getQuestions(surveyId));
+  }, [surveyId, dispatch]);
 
   useEffect(() => {
     questions &&
@@ -56,8 +57,8 @@ function ResponseContainer({ postId }) {
   const selectAnswer = (index, answerId) => {
     const ansArray = [...answers];
     ansArray[index] = answerId; //만약 이후 수정 기능을 도입한다면, index가 아니라 ansid 를 저장해서 어떤 질문에 대해 답을 했는지 알아야 할듯.
-    console.log(ansArray);
     setAnswers(() => ansArray);
+    console.log(answers);
   };
 
   return (
@@ -89,8 +90,7 @@ function ResponseContainer({ postId }) {
 
         <SwiperSlide>
           <div style={outerStyle}>
-            <div>제출하러 가볼까요~?</div>
-            <button>제출</button>
+            <SubmitAnswerSurvey />
           </div>
         </SwiperSlide>
       </Swiper>

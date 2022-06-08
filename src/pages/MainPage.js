@@ -5,7 +5,9 @@ function MainPage() {
   return (
     <>
       <div>
-        <Link to="/search">검색하기</Link>
+        <Link to="/response/f6b3243e-e348-4673-a0ee-1fc38dcbbca8">
+          검색하기
+        </Link>
       </div>
       <div> 설문을 만들고 싶으신가요~?</div>
       <div>
