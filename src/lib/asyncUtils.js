@@ -25,7 +25,7 @@ export const reducerUtils = {
   }),
 
   // 로딩중 상태. prevState의 경우엔 기본값은 null 이지만
-  // 따로 값을 지정하면 null 로 바꾸지 않고 다른 값을 유지시킬 수 있습니다.
+  // 따로 값을 지정하면 null 로 바꾸지 않고 다른 값을 유지시킬 수 있다.
   loading: (prevState = null) => ({
     loading: true,
     questions: prevState,

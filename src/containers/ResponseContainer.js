@@ -17,7 +17,7 @@ const outerStyle = {
 
 SwiperCore.use([Navigation, Pagination]);
 
-function ResponseContainer({ postId }) {
+function ResponseContainer({ surveyId }) {
   const swiperRef = React.useRef(null);
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState([]);
@@ -32,8 +32,8 @@ function ResponseContainer({ postId }) {
   };
 
   useEffect(() => {
-    dispatch(getQuestions(postId));
-  }, [postId, dispatch]);
+    dispatch(getQuestions(surveyId));
+  }, [surveyId, dispatch]);
 
   useEffect(() => {
     questions &&

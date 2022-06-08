@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="search" element={<SearchPage />} />
+      <Route path="response/:id" element={<SearchPage />} />
       <Route path="edit" element={<MakeSurbeyPage />} />
       <Route path="edit/info" element={<MakeSurbeyInfopPage />} />
       <Route path="edit/detail" element={<MakeSurbeySwiperPage />} />
