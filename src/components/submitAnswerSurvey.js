@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const innerStyle = {
   width: "18rem",
@@ -10,7 +10,10 @@ const innerStyle = {
 function SubmitAnswerSurvey({}) {
   return (
     <>
-      <div style={innerStyle} className={"flex flex-col bg-gray-50"}>
+      <div
+        style={innerStyle}
+        className={"flex justify-center items-center flex-col bg-gray-50"}
+      >
         <div className="py-1 px-2 rounded-lg text-sky-600  text-2xl font-bold">
           응답이 완료되었습니다.
         </div>

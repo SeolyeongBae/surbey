@@ -16,9 +16,9 @@ const Question = React.memo(function Question({ index }) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="#4a90e2"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
             <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
             <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
@@ -51,7 +51,7 @@ const QuestionList = React.memo(function QuestionList({
               <button
                 onClick={() => onRemove(question.id)}
                 type="button"
-                class=" w-10 h-10 text-blue-700 hover:bg-blue-500 bg-white hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
+                className=" w-10 h-10 text-blue-700 hover:bg-blue-500 bg-white hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
               >
                 X
               </button>

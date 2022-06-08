@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import SubmitAnswerSurvey from "../components/submitAnswerSurvey";
 
 const outerStyle = {
-  height: "25em",
+  height: "100vh",
   fontSize: "1rem",
   lineHeight: 1.5,
   display: "flex",
@@ -58,6 +58,7 @@ function ResponseContainer({ surveyId }) {
     const ansArray = [...answers];
     ansArray[index] = answerId; //만약 이후 수정 기능을 도입한다면, index가 아니라 ansid 를 저장해서 어떤 질문에 대해 답을 했는지 알아야 할듯.
     setAnswers(() => ansArray);
+    console.log(answers);
   };
 
   return (
@@ -89,7 +90,7 @@ function ResponseContainer({ surveyId }) {
 
         <SwiperSlide>
           <div style={outerStyle}>
-            <SubmitAnswerSurvey></SubmitAnswerSurvey>
+            <SubmitAnswerSurvey />
           </div>
         </SwiperSlide>
       </Swiper>

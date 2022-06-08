@@ -27,7 +27,6 @@ function ResponseAnswerSwiper({
 
   const timerId = useRef(null);
   const [isTimeOut, setIsTimeOut] = useState(false);
-
   useEffect(() => {
     if (isCurrent && question.time === 1) {
       timerId.current = setInterval(() => {
@@ -49,14 +48,16 @@ function ResponseAnswerSwiper({
   return (
     <>
       <div style={innerStyle} className={"flex flex-col bg-gray-50"}>
-        <div className="py-1 px-2 rounded-lg text-sky-600  text-2xl font-bold">
+        <div className="py-2 px-2 rounded-lg text-sky-600 text-2xl font-bold">
           {" "}
           Q{index}.{" "}
         </div>
-        <div> {question.text}</div>
+        <div className="py-3 px-2"> {question.text}</div>
         {isTimeOut ? (
           <>
-            <div className={"grow flex justify-center items-center "}>
+            <div
+              className={"grow flex justify-center items-center text-gray-400 "}
+            >
               더이상 응답하지 못하는 질문이에요!
             </div>
           </>
@@ -64,20 +65,24 @@ function ResponseAnswerSwiper({
           <>
             {" "}
             {question.time === 1 && (
-              <div
-                className={
-                  "inline-flex flex-shrink-0 items-center justify-center"
-                }
-              >
-                제한 시간이 있어요!
-                <div className="timer">{sec} 초</div>
-              </div>
+              <>
+                <div
+                  className={
+                    "inline-flex flex-shrink-0 items-center justify-center text-gray-400 "
+                  }
+                >
+                  제한 시간이 있어요!
+                </div>
+                <div className=" inline-flex flex-shrink-0 timer items-center justify-center text-gray-500">
+                  {sec} 초
+                </div>
+              </>
             )}
-            <div className="button-container my-5 flex flex-col">
+            <div className="button-container my-5 flex flex-col grow justify-center">
               <button
                 onClick={ansClick}
                 name={0}
-                className="py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md  "
+                className={`py-5 px-5 my-2 font-semibold rounded-lg text-sky-600 bg-blue-100 hover:bg-blue-300 rounded-md `}
               >
                 {question.answer[0]}
               </button>
